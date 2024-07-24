@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+  <body class="flex">
+    <div
+      class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900"
+    >
+      <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center">
+          <h1 class="font-bold text-gray-200 text-2xl ml-3">
+            Nano<span class="text-blue-600">vest</span>
+          </h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+        <div class="my-2 bg-gray-600 h-[1px]"></div>
+      </div>
+      <a
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+        href="/"
+      >
+        <i class="bi bi-house-door-fill"></i>
+        <span class="text-xl ml-4 flex items-center text-gray-200 font-bold"
+          ><box-icon name="dashboard" type="solid" color="#ffffff"></box-icon>
+          Dashboard</span
+        >
+      </a>
+      <a
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+        href="/sentimen"
+      >
+        <i class="bi bi-house-door-fill"></i>
+        <span class="text-xl ml-4 flex items-center text-gray-200 font-bold"
+          ><box-icon name="analyse" color="#ffffff" type="solid"></box-icon>
+          Sentimen</span
+        >
+      </a>
+      <a
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+        href="/evaluasi"
+      >
+        <i class="bi bi-house-door-fill"></i>
+        <span class="text-xl ml-4 flex items-center text-gray-200 font-bold"
+          ><box-icon name="search-alt" color="#ffffff" type="solid"></box-icon>
+          Evaluasi Model</span
+        >
+      </a>
+    </div>
+    <div class="flex-1 ml-[300px] p-10 bg-slate-200 h-full">
+      <div class="p-10 bg-[#966FE8] rounded-md mb-5">
+        <div class="px-12">
+          <h2 class="text-white">Selamat Datang!</h2>
+          <h1 class="font-bold text-2xl text-white">
+            Aplikasi Analisis Sentimen Ulasan Aplikasi Nanovest Pada Google Play
+            Store Menggunakan BERT
+          </h1>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <div class="bg-[#F5F5F5] rounded-md p-5 h-[250px] mt-24">
+          <h1 class="text-2xl font-bold mb-2 text-center">
+            Total: 2762 Ulasan
+          </h1>
+          <div class="flex items-center mt-5">
+            <box-icon name="happy-beaming" size="lg" color="#D9B8FF"></box-icon>
+            <div class="ml-4">
+              <h2 class="text-xl font-bold text-left">1561</h2>
+              <p>Bintang 4-5</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <box-icon name="happy-beaming" size="lg" color="#FFC470"></box-icon>
+            <div class="ml-4">
+              <h2 class="text-xl font-bold text-left">619</h2>
+              <p>Bintang 3</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <box-icon name="happy-beaming" size="lg" color="#FFAFA3"></box-icon>
+            <div class="ml-4">
+              <h2 class="text-xl font-bold text-left">536</h2>
+              <p>Bintang 1-2</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-[500px] p-5">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script>
+      const myChart = new Chart("myChart", {
+        type: "pie",
+        data: {
+          labels: ["Negative", "Neutral", "Positive"],
+          datasets: [
+            {
+              label: "Sentiment Analysis",
+              data: [1200, 800, 762],
+              backgroundColor: ["#FFAFA3", "#FFC470", "#D9B8FF"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+    </script>
+  </body>
+</html>
